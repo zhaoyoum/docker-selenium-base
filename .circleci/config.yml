@@ -8,7 +8,7 @@ build_jobs: &build_jobs
     - push-manifest:
         requires:
 #          - build-amd64
-#          - build-arm64
+#         - build-arm64
           - build-mips64el
 
 workflows:
