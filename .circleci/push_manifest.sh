@@ -6,7 +6,7 @@ mv manifest-tool-linux-mips64 /usr/bin/manifest-tool
 chmod +x /usr/bin/manifest-tool
 manifest-tool --version
 
-echo $DOCKERHUB_PASS | docker login harbor.svccloud.cn -u $DOCKERHUB_USER --password-stdin
+echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
 manifest-tool push from-args \
   --platforms linux/mips64el \
   --template "$REGISTRY/$IMAGE:$VERSION-ARCH" \
