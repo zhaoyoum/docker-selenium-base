@@ -5,7 +5,7 @@ export GITHUB_REPO=minio/minio
 export GOPATH=/go
 export GOROOT=/usr/local/go
 export IMAGE=minio
-export REGISTRY=dxp-crossplatform
+export REGISTRY=youmingzhao
 
 export VERSION=$(curl -s https://api.github.com/repos/${GITHUB_REPO}/releases/latest | jq -r ".tag_name")
 export IMAGE_ID="${REGISTRY}/${IMAGE}:${VERSION}-${TAG}"
