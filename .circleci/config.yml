@@ -2,14 +2,14 @@ version: 2.0
 
 build_jobs: &build_jobs
   jobs:
-    - build-amd64
-    - build-arm64
-    # - build-armhf
+    # - build-amd64
+    # - build-arm64
+    - build-mips64el
     - push-manifest:
         requires:
-          - build-amd64
-          - build-arm64
-          # - build-armhf
+#         - build-amd64
+#         - build-arm64
+          - build-mips64el
 
 workflows:
   version: 2
@@ -62,13 +62,13 @@ jobs:
       QEMU_ARCH: aarch64
       TAG: arm64
       TARGET: arm64v8
-  # build-armhf:
-  #   <<: *shared
-  #   environment:
-  #     GOARCH: arm
-  #     QEMU_ARCH: arm
-  #     TAG: arm
-  #     TARGET: arm32v6
+  build-mips64el:
+    <<: *shared
+    environment:
+      GOARCH: mips64el
+      QEMU_ARCH: mips64el
+      TAG: mips64el
+      TARGET: mips64el
   push-manifest:
     docker:
       - image: docker:stable-git
