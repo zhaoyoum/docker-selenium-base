@@ -8,8 +8,7 @@ ENV GOOS linux
 ENV GOPATH /usr/lib/go-1.11
 ENV CGO_ENABLED 0
 ENV GO111MODULE on
-RUN ls
-RUN apt-get update -y && apt-get install  git -y 
+RUN apt-get update -y && apt-get install  git -y
 RUN git clone https://github.com/minio/minio 
 RUN pwd && \  
   cd minio && \
