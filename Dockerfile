@@ -5,11 +5,11 @@ ARG goarch
 ENV GOARCH $goarch
 ENV GOOS linux
 
-ENV GOPATH /go
+ENV GOPATH /usr/lib/go-1.11
 ENV CGO_ENABLED 0
 ENV GO111MODULE on
 
-RUN  \
+RUN  pwd && \
   apt-get update -y && apt-get install  git -y && \
   git clone https://github.com/minio/minio 
 RUN pwd && \  
