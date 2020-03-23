@@ -11,7 +11,8 @@ ENV GO111MODULE on
 
 RUN  \
   apt-get update -y && apt-get install  git -y && \
-  git clone https://github.com/minio/minio && \
+  git clone https://github.com/minio/minio 
+RUN pwd && \  
   cd minio && \
   go install -v -ldflags "$(go run buildscripts/gen-ldflags.go)" && \
   find / -name minio -exec cp -f {} /minio \;
