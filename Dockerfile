@@ -1,5 +1,5 @@
 ARG target
-FROM golang:1.13-alpine
+FROM harbor.svccloud.cn/dxp-crossplatform/golang:1.11
 
 ARG goarch
 ENV GOARCH $goarch
@@ -10,7 +10,7 @@ ENV CGO_ENABLED 0
 ENV GO111MODULE on
 
 RUN  \
-  apk add --no-cache git && \
+  apt-get update -y && apt-get install  git -y && \
   git clone https://github.com/minio/minio && \
   cd minio && \
   go install -v -ldflags "$(go run buildscripts/gen-ldflags.go)" && \
