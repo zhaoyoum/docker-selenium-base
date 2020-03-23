@@ -14,7 +14,7 @@ RUN  \
   git clone https://github.com/minio/minio && \
   cd minio && \
   go install -v -ldflags "$(go run buildscripts/gen-ldflags.go)" && \
-  find /go/bin -name minio -exec cp -f {} /go/bin/minio \;
+  find / -name minio -exec cp -f {} /minio \;
 
 #FROM $target/alpine:3.11
 FROM harbor.svccloud.cn/dxp-crossplatform/alpine:3.9
