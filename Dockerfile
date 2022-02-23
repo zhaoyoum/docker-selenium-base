@@ -1,5 +1,5 @@
 ARG target
-FROM harbor.svccloud.cn/dxp-crossplatform/dxp-golang:1.11
+FROM harbor.superdxp.com/dxp-crossplatform/dxp-golang:1.11
 
 ARG goarch
 ENV GOARCH $goarch
