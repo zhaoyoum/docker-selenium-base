@@ -1,64 +1,40 @@
-### minio-multiarch
+# Selenium Base Image
 
-[![CircleCI][circleci-badge]][circleci-link]
-[![MicroBadger Size][microbadger]][microbadger-link]
-[![Docker Pulls][dockerhub-badge]][dockerhub-link]
+_This image is not meant to be run directly!_ It serves as the base image used for each of the Selenium images involved in setting up a Selenium Grid.
 
-Provides nightly builds of Minio server Docker images compatible with `arm64`,
-`armhf`/`armv7`, and `amd64` architectures.
+## Dockerfile
 
-### Minio Server
+[`selenium/base` Dockerfile](Dockerfile)
 
-[Minio][minio-home] is an OSS project offering a "high performance distributed
-object storage server", with fabulous features like an S3-compliant API,
-excellent documentation, and other great features out-of-the-box:
+## What is Selenium?
+_Selenium automates browsers._ That's it! What you do with that power is entirely up to you. Primarily, it is for automating web applications for testing purposes, but is certainly not limited to just that. Boring web-based administration tasks can (and should!) also be automated as well.
 
-* Regularly updated Docker images -- for AMD64 only, unfortunately
+Selenium has the support of some of the largest browser vendors who have taken (or are taking) steps to make Selenium a native part of their browser. It is also the core technology in countless other browser automation tools, APIs and frameworks.
 
-* An officially supported (in-tree) [Helm chart][minio-helm] for easy Kubernetes
-  deployment.
+See the Selenium [site](https://www.selenium.dev/documentation/en/) for documentation on usage within your test code.
 
-- A pretty dope CLI client, [mc][mc-github], for interfacing with not just Minio
-  but any S3-compliant API. I've got a [multi-arch image][mc-link] for that too!
+## License
 
-However, there's currently no officially maintained Docker image compatible with
-architectures other than amd64. And while they provide cross-compiled binaries
-for ARM/ARM64, these releases often lag months behind the Darwin x86_64 or Linux
-AMD64 binaries.
+View [license information](../LICENSE.md) for the software contained in this image.
 
-This repo triggers a nightly job on CircleCI to build Docker images for all
-three architectures, then updates the repository manifest accordingly. Just
-`docker run --rm -it jessestuart/minio` on any platform, and you'll be on your
-way to storage success.
+## Getting Help
 
-### How can I use this?
+### User Group
 
-You can run the following command to stand up a standalone instance of Minio
-Server on Docker:
+The first place where people ask for help about Selenium is the [Official User Group](https://groups.google.com/forum/#!forum/selenium-users). Here, you'll find that most of the time, someone already found the problem you are facing right now, and usually reached the solution for which you are looking.
 
-```bash
-docker run \
-  -v /export/minio \
-  -v /export/minio-config:/root/.minio \
-  -p 9000:9000 \
-  jessestuart/minio server /export
-```
+_Note: Please make sure to search the group before asking for something. Your question likely won't get answered if it was previously answered in another discussion!_
 
----
+### Chat Room
 
-### Kubernetes
+The best place to ask for help is the user group (because they also keep the information accessible for others to read in the future). However, if you have a very important (or too simple) issue that needs a solution ASAP, you can always enter the IRC chat room. You might just find someone ready to help on `#selenium` at [Freenode](https://freenode.net/) or [SeleniumHQ Slack](https://seleniumhq.herokuapp.com/)
 
-This image can also be used to deploy a Minio pod to a Kubernetes cluster. See
-the [official docs][minio-k8s] on deploying Minio to Kubernetes for more detail,
-or check out the Minio [Helm chart][minio-helm] documentation.
+### Issues
 
-[circleci-badge]: https://circleci.com/gh/jessestuart/minio-multiarch/tree/master.svg?style=shield
-[circleci-link]: https://circleci.com/gh/jessestuart/minio-multiarch/tree/master
-[dockerhub-badge]: https://img.shields.io/docker/pulls/jessestuart/minio.svg?style=flat-square
-[dockerhub-link]: https://hub.docker.com/r/jessestuart/minio/
-[mc-link]: https://github.com/jessestuart/mc-multiarch
-[microbadger-link]: https://github.com/jessestuart/minio-multiarch
-[microbadger]: https://images.microbadger.com/badges/image/jessestuart/minio.svg
-[minio-helm]: https://github.com/kubernetes/charts/tree/master/stable/minio
-[minio-home]: https://minio.io
-[minio-k8s]: https://docs.minio.io/docs/deploy-minio-on-kubernetes
+If you have any problems with or questions about this image, please contact us through a [Github issue](https://github.com/SeleniumHQ/docker-selenium/issues). If you have any problems with or questions about Selenium, please contact us through Selenium's [Bug Tracker](https://github.com/SeleniumHQ/selenium/issues).
+
+## Contributing
+
+There are many ways to [contribute](https://www.selenium.dev/getinvolved/) whether by answering user questions, additional docs, or pull request we look forward to hearing from you.
+
+If you do supply a patch we will need you to [sign the CLA](https://spreadsheets.google.com/spreadsheet/viewform?hl=en_US&formkey=dFFjXzBzM1VwekFlOWFWMjFFRjJMRFE6MQ#gid=0). We are part of [SFC](http://www.sfconservancy.org/)
