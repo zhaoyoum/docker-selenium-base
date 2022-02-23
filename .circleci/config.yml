@@ -62,7 +62,7 @@ jobs:
       GOARCH: arm64
       QEMU_ARCH: aarch64
       TAG: arm64
-      TARGET: arm64v8
+      TARGET: aarch64
   build-mips64el:
     <<: *shared
     environment:
