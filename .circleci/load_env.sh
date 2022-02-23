@@ -9,7 +9,7 @@ export VERSION=1.0.0
 export TAG=develop
 export IMAGE_ID="${REGISTRY}/${IMAGE}:${VERSION}-${TAG}"
 export DIR=`pwd`
-export QEMU_VERSION="v4.0.0"
+export QEMU_VERSION="v6.1.0-8"
 ' >>$BASH_ENV
 
 . $BASH_ENV
