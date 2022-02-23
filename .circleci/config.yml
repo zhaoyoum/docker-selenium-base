@@ -3,13 +3,13 @@ version: 2.0
 build_jobs: &build_jobs
   jobs:
     # - build-amd64
-    # - build-arm64
-    - build-mips64el
+    - build-arm64
+    # - build-mips64el
     - push-manifest:
         requires:
 #         - build-amd64
-#         - build-arm64
-          - build-mips64el
+          - build-arm64
+#          - build-mips64el
 
 workflows:
   version: 2
