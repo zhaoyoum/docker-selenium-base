@@ -1,8 +1,5 @@
-
-FROM multiarch/qemu-user-static:x86_64-aarch64 as qemu
 FROM ubuntu:focal-20201106
 LABEL authors="Selenium <selenium-developers@googlegroups.com>"
-COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
 #================================================
 # Customize sources for apt-get
 #================================================
