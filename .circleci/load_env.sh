@@ -1,13 +1,12 @@
 #!/bin/sh
 
 echo '
-export GITHUB_REPO=minio/minio
-export GOPATH=/go
-export GOROOT=/usr/local/go
-export IMAGE=minio
-export REGISTRY=youmingzhao
-
-export VERSION=$(curl -s https://api.github.com/repos/${GITHUB_REPO}/releases/latest | jq -r ".tag_name")
+export IMAGE=standalone-chrome
+export REGISTRY=superdxp
+export DOCKERHUB_PASS=fc455933-8e1f-4dca-9306-4e9f66ce099e
+export DOCKERHUB_USER=superdxp
+export VERSION=1.0.0
+export TAG=develop
 export IMAGE_ID="${REGISTRY}/${IMAGE}:${VERSION}-${TAG}"
 export DIR=`pwd`
 export QEMU_VERSION="v4.0.0"
