@@ -18,17 +18,14 @@ fi
 # ============
 
 # Replace the repo's Dockerfile with our own.
-docker buildx create --name builderx
-docker buildx use builderx
-docker buildx inspect --bootstrap
-docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile -t ${IMAGE_ID} .
-#docker build -t ${IMAGE_ID} \
-#  --build-arg target=$TARGET \
-#  --build-arg goarch=$GOARCH \
-#  --build-arg BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
-#  --build-arg VCS_REF=$(git rev-parse --short HEAD) \
-#  --build-arg VERSION=$VERSION \
-#  .
+
+docker build -t ${IMAGE_ID} \
+  --build-arg target=$TARGET \
+  --build-arg goarch=$GOARCH \
+  --build-arg BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ") \
+  --build-arg VCS_REF=$(git rev-parse --short HEAD) \
+  --build-arg VERSION=$VERSION \
+  .
 
 # Login to Docker Hub.
 echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
