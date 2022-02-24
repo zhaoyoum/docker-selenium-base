@@ -9,6 +9,8 @@ export IMAGE_ID="${REGISTRY}/${IMAGE}:${VERSION}-${TAG}"
 if [ $GOARCH == 'amd64' ]; then
   touch qemu-amd64-static
 else
+  apt-get update
+  apt-get install qemu
   curl -sL "https://github.com/multiarch/qemu-user-static/releases/download/${QEMU_VERSION}/qemu-${QEMU_ARCH}-static.tar.gz" | tar xz
   cp qemu-${QEMU_ARCH}-static /usr/bin/
   chmod +x /usr/bin/qemu-${QEMU_ARCH}-static
