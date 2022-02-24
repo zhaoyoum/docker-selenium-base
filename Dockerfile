@@ -1,4 +1,5 @@
-FROM ubuntu:focal-20201106
+#FROM ubuntu:focal-20201106
+FROM arm64v8/ubuntu:focal
 LABEL authors="Selenium <selenium-developers@googlegroups.com>"
 #================================================
 # Customize sources for apt-get
